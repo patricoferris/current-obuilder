@@ -1,0 +1,4 @@
+(library
+ (name current_obuilder)
+ (public_name current-obuilder)
+ (libraries current.cache current_git obuilder obuilder-spec))

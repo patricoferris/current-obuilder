@@ -1,0 +1,27 @@
+opam-version: "2.0"
+maintainer:   "patrick@sirref.org"
+authors:      ["Patrick Ferris"]
+license:      "MIT"
+homepage:     "https://github.com/patricoferris/current-obuilder"
+bug-reports:  "https://github.com/patricoferris/current-obuilder/issues"
+dev-repo:     "git+https://github.com/patricoferris/current-obuilder.git"
+build: [
+ ["dune" "subst"] {dev}
+ ["dune" "build" "-p" name "-j" jobs]
+ ["dune" "runtest" "-p" name "-j" jobs] {with-test}
+]
+depends: [
+  "ocaml"         {>= "4.08"}
+  "dune"          {>= "3.2.0"}
+  "current"       {>= "0.6.2"}
+  "current_git"   {>= "0.6.2"}
+  "obuilder"      {>= "0.5"}
+  "obuilder-spec" {>= "0.5"}
+
+  "mdx"     {with-test}
+]
+synopsis: "OCurrent plugin for OBuilder"
+description:"""
+An OCurrent plugin library that wrap the OBuilder library which provides
+a way to run sandboxed builds a bit like Docker build.
+"""
