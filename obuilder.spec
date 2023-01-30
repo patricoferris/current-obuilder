@@ -6,4 +6,5 @@
  (run
   (network host)
   (shell "opam install --deps-only -t ."))
+ (copy (src .) (dst ./))
  (run (shell "opam exec -- dune build")))
